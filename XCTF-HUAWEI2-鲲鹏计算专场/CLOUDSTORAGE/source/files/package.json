@@ -1,0 +1,24 @@
+{
+  "name": "express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "parseurl": "latest",
+    "request": "latest",
+    "session-file-store": "^1.4.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "ip": "^1.1.5",
+    "multer": "^1.4.2"
+  }
+}
