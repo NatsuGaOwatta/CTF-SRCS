@@ -107,7 +107,7 @@ After being sanitized, the serialized data looks like:
 a:3:{s:4:"user";s:24:"";s:8:"function";s:64:"a";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";s:4:"test";s:4:"test";}";s:3:"img";s:20:"Z3Vlc3RfaW1nLnBuZw==";}
 ```
 
-So we successfully injected an array member, and since the beginning is `a:3`, we add the `s:4:"test";s:4:"test";`
+So we successfully injected an array member, and since the beginning is `a:3`, we add the `s:4:"test";s:4:"test";`. PHP also unserialize members that do not exist in the class.
 
 Finally, combined with variable coverage, exploit it:
 

