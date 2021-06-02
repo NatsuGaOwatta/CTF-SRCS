@@ -55,3 +55,13 @@ For demonstration, I changed the file name manually:
 btw, i dont know how to terminate the program in multiple threads. sad😥
 
 ![](https://i.imgur.com/xLq4H38.png)
+
+---
+
+2021.06.02 Update:
+
+Later learned to use the `Event` module.
+
+> `Event` is an object that can be used in multiple threads, initially it contains a signal flag of `False`, once this flag is changed to `True` in any one thread, then all threads will see this flag become True
+
+So a slight modification to the poc.py. When `event.set()` is executed, Another thread is then terminated.

