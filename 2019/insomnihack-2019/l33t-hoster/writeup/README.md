@@ -3,6 +3,8 @@
 - [@mdsnins, l33t-hoster.md, 2019-01-26](https://github.com/mdsnins/ctf-writeups/blob/master/2019/Insomnihack%202019/l33t-hoster/l33t-hoster.md)
 - [@yxxx, 利用htaccess绕黑名单 mail绕过disable function, 2019-01-26](https://xz.aliyun.com/t/3937)
 
+**Tag: Upload bypass, disable_functions**
+
 1.In source page can find a hint: `<!-- /?source -->`, source code get!
 
 ```php
@@ -200,7 +202,7 @@ No `imap_open` blocked, think of the [CVE-2018-19518](https://github.com/Bo0oM/P
 shell.xxx?a=var_dump(get_defined_functions());
 ```
 
-Also, we can notice that `mail` and `putenv` functions are not disabled, we may be able to use **LD_PRELOAD injection**. refer: [无需sendmail：巧用LD_PRELOAD突破disable_functions](https://www.freebuf.com/web/192052.html)
+Additionally, we can notice that `mail` and `putenv` functions are not disabled, we may be able to use **LD_PRELOAD injection**. refer: [无需sendmail：巧用LD_PRELOAD突破disable_functions](https://www.freebuf.com/web/192052.html)
 
 ```bash
 $ strace -f php -r "mail('','','','');" 2>&1 | grep -E "execve|fork|vfork"
@@ -259,7 +261,7 @@ After getting the interactive shell, use the `trap` command to capture the `SIGA
 
 #### Others
 
-The answer given by the questioner is:
+The answer given by the author is:
 
 ```bash
 $ cd /; bash -c 'expr $(grep + /tmp/test)' | /get_flag > /tmp/test; cat /tmp/test

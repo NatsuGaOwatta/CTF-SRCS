@@ -29,6 +29,6 @@ $phar->setStub("GIF89a" . "<?php __HALT_COMPILER(); ?>");
 $o = new File();
 $phar->setMetadata($o);
 $phar->addFromString("test.txt", "123");
-    //签名自动计算
+    // Signature is automatically calculated
 $phar->stopBuffering();
 ?>

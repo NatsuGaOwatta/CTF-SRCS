@@ -3,6 +3,8 @@
 - [@Zeddyu, ByteCTF 2019 Web WP, 2019-09-17](http://blog.zeddyu.info/2019/09/17/bytectf2019/#EzCMS)
 - [@ptr-yudai, Length Extension Attackの原理と実装, 2018-08-28](https://ptr-yudai.hatenablog.com/entry/2018/08/28/205129)
 
+**Tag: Phar unserialize, ZipArchive**
+
 1.Scan dir result:
 
 ```tex
@@ -268,4 +270,20 @@ $ xxd poc.phar | grep "\`"
 It contains the \`[grave accent] which is filtered in check function! So i can't upload it. I tried many things, including gzip to compress it, but couldn't get rid of this character.
 
 sad :(
+
+---
+
+#### 2021-06-12 Update
+
+After detailed analysis of the `.phar` file format, the reason for this last problem is the timestamp. **Unix timestamp of file (4 bytes)**
+
+Since the current timestamp is 162xxxxxxx, the phar file will always contain the `0x60` character after it is generated.
+
+One solution is to simply change the system time :>
+
+![](https://i.imgur.com/EcgaX9k.png)
+
+OK, now we can upload the phar file and complete this challenge.
+
+![](https://i.imgur.com/lIj23zR.png)
 
