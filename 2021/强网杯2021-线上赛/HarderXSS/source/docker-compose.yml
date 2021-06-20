@@ -1,0 +1,14 @@
+version: '2'
+services:
+  hardxss:
+    build: .
+    image: xxe_xss:1.50
+    ports:
+      - 80:80
+      - 443:443
+    extra_hosts:
+      - "flaaaaaaaag.cubestone.com:127.0.0.1"
+      - "cubestone.com:127.0.0.1"
+    command: flag{hardxss}
+    cap_add:
+      - ALL

