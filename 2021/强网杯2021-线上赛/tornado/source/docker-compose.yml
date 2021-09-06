@@ -1,9 +1,0 @@
-version: '2'
-services:
-  tornado:
-    build: .
-    image: tornado_ssti
-    ports:
-      - 8123:8000
-    cap_add:
-      - ALL
