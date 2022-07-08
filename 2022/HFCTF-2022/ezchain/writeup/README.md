@@ -6,6 +6,6 @@
 
 **Tag: Java deserialize, hessian, Rome Gadget**
 
-![](https://imgur.com/aeZJc4d)
+![](https://imgur.com/aeZJc4d.png)
 
-![](https://imgur.com/9GlK63x)
+![](https://imgur.com/9GlK63x.png)
