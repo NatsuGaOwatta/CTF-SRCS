@@ -85,7 +85,7 @@ function __wakeup(){
 }
 ```
 
-If we unserialize the `File` class, we can call the `check` method of any class here. Or we should thing about the `__call` magic function.
+If we unserialize the `File` class, we can call the `check` method of any class here. Or we should think about the `__call` magic function.
 
 In `admin.php`, we can see the following code:
 
