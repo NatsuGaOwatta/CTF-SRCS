@@ -128,5 +128,5 @@ $flag = 'flag in /d0g3_fllllllag';
 
 then, just read the flag:
 
-![](https://i.imgur.com/2Nq2dOO.png)
+![img1](./assets/img1.png?raw=true)
 

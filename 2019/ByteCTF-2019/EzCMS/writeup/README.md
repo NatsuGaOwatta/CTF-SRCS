@@ -89,7 +89,7 @@ the key length is the length of the secret variable plus the length of the usern
 
 Then we use the `admin` as the useranme, the data output above use as the password and add `user` to the cookie, with the new_md5 output above as the value. Now we can upload files:
 
-![](https://i.imgur.com/eJApbxI.png)
+![img1](./assets/img1.png?raw=true)
 
 3.We can even upload the php file directly, but the code does some checking of the file content:
 
@@ -229,7 +229,7 @@ In this article [**Insomnihack Teaser 2018 / File Vault**](https://corb3nik.gith
 
 5.Deleting files is actually triggered on `ZipArchive::close`:
 
-![](https://i.imgur.com/wKy50F1.png)
+![img2](./assets/img2.png?raw=true)
 
 Because of the following code in libzip:
 
@@ -281,9 +281,9 @@ Since the current timestamp is 162xxxxxxx, the phar file will always contain the
 
 One solution is to simply change the system time :>
 
-![](https://i.imgur.com/EcgaX9k.png)
+![img3](./assets/img3.png?raw=true)
 
 OK, now we can upload the phar file and complete this challenge.
 
-![](https://i.imgur.com/lIj23zR.png)
+![img4](./assets/img4.png?raw=true)
 

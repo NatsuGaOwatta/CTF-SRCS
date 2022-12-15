@@ -75,7 +75,7 @@ So we can do Unserialize injection, just manually close all brackets. PHP will s
 
 Use tcpdump sniffing in docker and look at the packets in wireshark: (<del>too lazy to install solr locally and debug<del> :p)
 
-![](https://i.loli.net/2021/09/27/FqhypGPKDeIfBYi.png)
+![img1](./assets/img1.png?raw=true)
 
 Then we can insert serialised data, which requires the closure of **5 brackets** (use fuzzing)
 
@@ -119,7 +119,7 @@ gadget chain:
 
 use the chain.php generating serialised payloads and use the rep.py responsed the payload
 
-![](https://i.loli.net/2021/09/27/YZviw5e9NpIKhb4.png)
+![img2](./assets/img2.png?raw=true)
 
 another chain from ROIS:
 

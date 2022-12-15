@@ -44,17 +44,17 @@ with requests.session() as s:
 
 The output status code in Apache is 500, and in Nginx is 502. In `/tmp`, we can find the temp file:
 
-![](https://i.imgur.com/5abE2HS.png)
+![img1](./assets/img1.png?raw=true)
 
 3.Now we just need to bruteforce for the temp file. But before that, we can upload multiple times to generate a large number of temp files which can improve the efficiency of brute force.
 
 For demonstration, I changed the file name manually:
 
-![](https://i.imgur.com/FgqLSzm.png)
+![img2](./assets/img2.png?raw=true)
 
 btw, i dont know how to terminate the program in multiple threads. sad😥
 
-![](https://i.imgur.com/xLq4H38.png)
+![img3](./assets/img3.png?raw=true)
 
 ---
 

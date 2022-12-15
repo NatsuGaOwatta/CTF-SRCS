@@ -77,5 +77,5 @@ This will call the welcome_to_the_lctf2018 function in the session object we con
 
 Finally, just change the cookie to the one we set in SSRF POC to get the flag
 
-![](https://i.imgur.com/ZcosxmV.png)
+![img1](./assets/img1.png?raw=true)
 

@@ -167,7 +167,7 @@ Then go to the `func.php` page and submit the url with 1.gif path:
 php://filter/resource=phar://./upload/46c01c941bd10a9c3038752f7354f2e8/b5e9b4f86ce43ca65bd79c894c4a924c.gif
 ```
 
-![](https://i.imgur.com/kLwysqs.png)
+![img1](./assets/img1.png?raw=true)
 
 ---
 

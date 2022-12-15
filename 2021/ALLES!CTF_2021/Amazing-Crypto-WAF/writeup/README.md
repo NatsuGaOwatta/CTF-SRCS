@@ -118,7 +118,7 @@ elif request.method == 'POST':
 
 maybe you've noticed it, the URL structure of the request. The `path` variable is a URL parameter, there are no explicit transformations here, but Flask auto decodes it. Here is a demonstration image from greg's video:
 
-![](https://i.loli.net/2021/10/30/PX5x7foBSYyt4Oe.png)
+![img1](./assets/img1.png?raw=true)
 
 Just URL-encode the question mark, then the request was sent with the question mark decoded. The proxy didn't consider `%3forder=asc&` to be parameters, but rather a part of the path.
 
@@ -236,11 +236,11 @@ def delete_note():
     return redirect(f'/notes?deleted={note_uuid}')  # use
 ```
 
-![](https://i.loli.net/2021/10/31/RU7BQ14sjMxq85O.png)
+![img2](./assets/img2.png?raw=true)
 
 So if we pass in a encrypted string here, we can see that the result will be the decrypted value now.
 
 5.Finally, just run the exploit.py script
 
-![](https://i.imgur.com/8MCcSOs.png)
+![img3](./assets/img3.png?raw=true)
 

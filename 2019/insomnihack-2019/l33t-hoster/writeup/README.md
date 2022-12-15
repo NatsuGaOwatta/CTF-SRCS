@@ -174,7 +174,7 @@ So just base64 encoding the `shell.xxx` file simply. Be careful to let base64 de
 
 Now, we get a webshell!
 
-![](https://i.imgur.com/bPkFjn5.png)
+![img1](./assets/img1.png?raw=true)
 
 scan the root directory using `scandir` function:
 
@@ -257,7 +257,7 @@ if ($reverse == 1) {
 
 After getting the interactive shell, use the `trap` command to capture the `SIGALRM` signal which has a value of 14, and just calculate it slowly :>
 
-![](https://i.imgur.com/aqX6Ufp.png)
+![img2](./assets/img2.png?raw=true)
 
 #### Others
 

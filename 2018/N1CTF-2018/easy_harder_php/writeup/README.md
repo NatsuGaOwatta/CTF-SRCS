@@ -136,7 +136,7 @@ The table name is `ctf_users`, we need the `password` column and the `is_admin` 
 
 Writing a script to inject gives the admin password hash:
 
-![](https://i.imgur.com/KjjNPZB.png)
+![img1](./assets/img1.png?raw=true)
 
 But we still can't login with the admin account, the hint is:
 
@@ -247,7 +247,7 @@ $file_true_name = $file_true_name.time().rand(1,100).'.jpg';
 
 Use python script it's easy to do this:
 
-![](https://i.imgur.com/yc4URZk.png)
+![img2](./assets/img2.png?raw=true)
 
 shell content:
 
@@ -274,5 +274,5 @@ mysql -uroot -pNu1Lctf%#~:p -se "use flag;show tables;"
 mysql -uroot -pNu1Lctf%#~:p -se "use flag;select * from flag;"
 ```
 
-![](https://i.imgur.com/zEacDEk.png)
+![img3](./assets/img3.png?raw=true)
 
